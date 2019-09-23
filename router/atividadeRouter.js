@@ -21,7 +21,7 @@ router.get("/", function(req, res, next){
 
 router.get("/:title_url?", function(req, res, next){
 
-    PortfolioModel.getId(req.params.title_url ,function(erro, retorno){
+    AtividadeModel.getId(req.params.title_url ,function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
@@ -38,7 +38,7 @@ router.get("/:title_url?", function(req, res, next){
 
 router.post("/?", function(req, res, next){
 
-    PortfolioModel.adicionar(req.body, function(erro, retorno){
+    AtividadeModel.adicionar(req.body, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
@@ -60,7 +60,7 @@ router.post("/?", function(req, res, next){
 
 router.delete("/:title_url", function(req, res, next){
 
-    PortfolioModel.deletar(req.params.title_url, function(erro, retorno){
+    AtividadeModel.deletar(req.params.title_url, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
@@ -82,7 +82,7 @@ router.delete("/:title_url", function(req, res, next){
 
 router.put("/", function(req, res, next){
 
-    PortfolioModel.editar(req.body, function(erro, retorno){
+    AtividadeModel.editar(req.body, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
