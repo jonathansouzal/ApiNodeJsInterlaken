@@ -21,7 +21,7 @@ router.get("/", function(req, res, next){
 
 router.get("/:title_url?", function(req, res, next){
 
-    PortfolioModel.getId(req.params.id ,function(erro, retorno){
+    PortfolioModel.getId(req.params.title_url ,function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
