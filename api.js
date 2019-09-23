@@ -8,7 +8,7 @@ const router = express.Router();
 const atividadeRouter = require('./router/atividadeRouter');
 const matriculaRouter = require('./router/matriculaRouter');
 
-api.use(cors());
+api.use(express.static('public'))
 
 api.use(bodyparser.urlencoded({extended: true}));
 api.use(bodyparser.json());
@@ -21,5 +21,6 @@ api.use('/', router);
 api.use('/atividade', atividadeRouter);
 api.use('/matricula', matriculaRouter);
 
-api.listen(port);
+api.listen(process.env.PORT || 8080, () => console.log('Api funcionando'));
 //console.log('API node restfull...');
+
