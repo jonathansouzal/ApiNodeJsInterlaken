@@ -1,9 +1,6 @@
 {
   "name": "node-api-interlaken",
-  "version": "1.0.0",
-   "engines": {
-    "node": "10.16.0"
-  },
+  "version": "1.0.0",   
   "description": "",
   "main": "api.js",
   "scripts": {
@@ -19,5 +16,8 @@
   },
   "dependencies": {
     "mysql": "^2.17.1"
+  },
+  "engines": {
+    "node": "10.16.0"
   }
 }
