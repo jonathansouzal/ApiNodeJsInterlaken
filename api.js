@@ -2,10 +2,11 @@ const express = require('express');
 const bodyparser = require('body-parser');
 const cors = require('cors');
 const api = express();
-const port = 3000;
+const port = 9000;
 const router = express.Router();
 
-const portfolioRouter = require('./router/portfolioRouter');
+const atividadeRouter = require('./router/atividadeRouter');
+const matriculaRouter = require('./router/matriculaRouter');
 
 api.use(cors());
 
@@ -17,7 +18,8 @@ router.get("/", (req, res) => res.json({
 }));
 
 api.use('/', router);
-api.use('/portfolio', portfolioRouter);
+api.use('/atividade', atividadeRouter);
+api.use('/matricula', matriculaRouter);
 
 api.listen(port);
-console.log('Run API Express...');
+//console.log('API node restfull...');

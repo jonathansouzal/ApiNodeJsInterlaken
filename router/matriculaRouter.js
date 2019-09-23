@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var PortfolioModel = require('../model/portfolio/PortfolioModel');
+var MatriculaModel = require('../model/matricula/MatriculaModel');
 var RespostaClass = require('../model/RespostaClass');
 
 router.get("/", function(req, res, next){
 
-    PortfolioModel.getTodos(function(erro, retorno){
+    MatriculaModel.getTodos(function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
             resposta.erro = true;
             resposta.msg = 'Ocorreu um erro';
-            console.log('erro:', erro);
+           // console.log('erro:', erro);
         }else{
             resposta.dados = retorno;
         }
@@ -19,15 +19,15 @@ router.get("/", function(req, res, next){
     })
 });
 
-router.get("/:id?", function(req, res, next){
+router.get("/:nome?", function(req, res, next){
 
-    PortfolioModel.getId(req.params.id ,function(erro, retorno){
+    MatriculaModel.getId(req.params.nome ,function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
             resposta.erro = true;
             resposta.msg = 'Ocorreu um erro';
-            console.log('erro:', erro);
+          //  console.log('erro:', erro);
         }else{
             resposta.dados = retorno;
         }
@@ -38,13 +38,13 @@ router.get("/:id?", function(req, res, next){
 
 router.post("/?", function(req, res, next){
 
-    PortfolioModel.adicionar(req.body, function(erro, retorno){
+    MatriculaModel.adicionar(req.body, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
             resposta.erro = true;
             resposta.msg = 'Ocorreu um erro';
-            console.log('erro:', erro);
+           // console.log('erro:', erro);
         }else{
             if(retorno.affectedRows > 0){
                 resposta.msg = "cadastro realizado com sucesso.";
@@ -53,20 +53,20 @@ router.post("/?", function(req, res, next){
                 resposta.msg = 'Não foi possível realizar a operação.'
             }
         }
-        console.log('resp:', resposta);
+      //  console.log('resp:', resposta);
         res.json(resposta);
     })
 })
 
-router.delete("/:id", function(req, res, next){
+router.delete("/:nome", function(req, res, next){
 
-    PortfolioModel.deletar(req.params.id, function(erro, retorno){
+    MatriculaModel.deletar(req.params.nome, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
             resposta.erro = true;
             resposta.msg = 'Ocorreu um erro';
-            console.log('erro:', erro);
+         //   console.log('erro:', erro);
         }else{
             if(retorno.affectedRows > 0){
                 resposta.msg = "Registro excluído com sucesso.";
@@ -75,20 +75,20 @@ router.delete("/:id", function(req, res, next){
                 resposta.msg = 'Não foi possível excluir o resgistro.'
             }
         }
-        console.log('resp:', resposta);
+     //   console.log('resp:', resposta);
         res.json(resposta);
     })
 })
 
 router.put("/", function(req, res, next){
 
-    PortfolioModel.editar(req.body, function(erro, retorno){
+    MatriculaModel.editar(req.body, function(erro, retorno){
         let resposta = new RespostaClass();
 
         if(erro){
             resposta.erro = true;
             resposta.msg = 'Ocorreu um erro';
-            console.log('erro:', erro);
+          //  console.log('erro:', erro);
         }else{
             if(retorno.affectedRows > 0){
                 resposta.msg = "Registro editado com sucesso.";
@@ -97,7 +97,7 @@ router.put("/", function(req, res, next){
                 resposta.msg = 'Não foi possível editar o resgistro.'
             }
         }
-        console.log('resp:', resposta);
+      //  console.log('resp:', resposta);
         res.json(resposta);
     })
 })
