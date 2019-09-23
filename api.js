@@ -4,6 +4,7 @@ const cors = require('cors');
 const api = express();
 const port = 9000;
 const router = express.Router();
+const port = process.env.PORT || 9000;
 
 const atividadeRouter = require('./router/atividadeRouter');
 const matriculaRouter = require('./router/matriculaRouter');
